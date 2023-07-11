@@ -15,7 +15,7 @@ function isYouTubeUrl(url) {
 
 function sendRequest(url) {
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:8000', true);
+  xhr.open('POST', 'http://localhost:8000', true); // Here you can add your server ip if you want 
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {

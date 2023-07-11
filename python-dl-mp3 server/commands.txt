@@ -1,3 +1,0 @@
-docker build --tag dl-mp3 .
-docker volume create mp3-dl
-docker run -p 8000:5000 -v mp3-dl:/app/downloads mp3-dl
