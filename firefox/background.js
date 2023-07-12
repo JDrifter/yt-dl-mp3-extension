@@ -22,5 +22,8 @@ function sendRequest(url) {
       console.log('Request sent successfully.');
     }
   };
+
+  url = url.substring(0, 43);
+  console.log(url);
   xhr.send(JSON.stringify({url: url}));
 }
