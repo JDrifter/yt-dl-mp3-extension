@@ -8,6 +8,7 @@ Simple extension for firefox and other browsers to make your playlist building e
 
 - run:
 > docker build --tag dl-mp3 .
+
 > docker run -p 8000:5000 -v {YOUR_DOWNLOAD_DIR_HERE}:/app/downloads -d --restart unless-stopped --name mp3-dl mp3-dl
 
 - This will build and install the dockerized server. Remember to specify your output directory!
