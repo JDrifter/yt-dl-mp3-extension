@@ -22,6 +22,7 @@ def download_video():
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(url, download=False)
             video_title = info_dict.get('title', 'video')
+            video_title = video_title.replace('/','-') # No directory confusion
             file_path = f'{download_dir}/{video_title}.webm'
             ydl.download([url])
         
@@ -29,6 +30,8 @@ def download_video():
         output_path = f'{download_dir}/{video_title}.mp3'
         subprocess.run(['ffmpeg', '-i', file_path, '-vn', '-acodec', 'libmp3lame', '-y', output_path], check=True)
         
+        # Delete .webms
+        subprocess.run(['rm', 'downloads/*.webm'], check = True)
         return 'Download and conversion complete!'
     except (yt_dlp.DownloadError, subprocess.CalledProcessError) as e:
         return f'Error: {str(e)}'
