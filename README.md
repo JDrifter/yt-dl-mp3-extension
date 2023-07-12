@@ -4,9 +4,21 @@ Simple extension for firefox and other browsers to make your playlist building e
 
 ## INSTALLATION:
 
-- Use commands in commands.txt with docker to install to your pc or server of choice. Remember to specify your output directory!
+### Serverside
 
-- In firefox, go to about:debugging -> this firefox -> add temporary extension and point to the manifest.json file. 
+- run:
+> docker build --tag dl-mp3 .
+
+> docker run -p 8000:5000 -v {YOUR_DOWNLOAD_DIR_HERE}:/app/downloads -d --restart unless-stopped --name mp3-dl mp3-dl
+
+- This will build and install the dockerized server. Remember to specify your output directory!
+
+
+### Browser
+
+- In firefox, write "about:debugging" in the search bar
+- Click "this firefox"
+- Click "Add temporary extension" and point to the manifest.json file. You are now done. 
 
 ## USAGE:
 
@@ -16,7 +28,7 @@ Simple extension for firefox and other browsers to make your playlist building e
 
 - [x] dockerize
 
-- [ ] make extension easier to add to browser
+- [ ] make extension easier to add permanently to browser
 
 - [ ] make extension cross-browser
 
